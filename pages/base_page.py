@@ -11,11 +11,11 @@ class BasePage:
         self.driver.get(self.url)
 
     # Проверка присутствия элемента
-    def element_is_visible(self, locator, timeout):
+    def element_is_visible(self, locator, timeout=5):
         return WebDriverWait(self.driver, timeout).until(EC.visibility_of_element_located(locator))
 
     # Проверка присутствия элементов
-    def element_are_visible(self, locator, timeout):
+    def element_are_visible(self, locator, timeout=5):
         return WebDriverWait(self.driver, timeout).until(EC.visibility_of_all_elements_located(locator))
 
     def element_is_present(self, locator, timeout=5):
@@ -25,11 +25,11 @@ class BasePage:
         return WebDriverWait(self.driver, timeout).until(EC.presence_of_all_elements_located(locator))
 
     # Проверка отсутствия элемента
-    def element_is_not_visible(self, locator, timeout):
+    def element_is_not_visible(self, locator, timeout=5):
         return WebDriverWait(self.driver, timeout).until(EC.invisibility_of_element_located(locator))
 
     # Проверка кликабельности элемента
-    def element_is_clickable(self, locator, timeout):
+    def element_is_clickable(self, locator, timeout=5):
         return WebDriverWait(self.driver, timeout).until(EC.element_to_be_clickable(locator))
 
     # Перемещение к элементу
